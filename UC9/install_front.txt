@@ -1,0 +1,10 @@
+-- Criando projeto
+yarn create create-react-app frontend
+-- CSS melhorado
+yarn add sass
+-- biblioteca de icones
+yarn add react-icons
+-- blibliotecas para login
+yarn add axios
+-- biblioteca de alertas
+yarn add react-toastify

@@ -1,0 +1,130 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+model Motoqueiro {
+  id       String @id @default(uuid())
+  nome     String
+  nusuario String
+  senha    String
+
+  create_at DateTime? @default(now())
+  update_at DateTime? @default(now())
+
+
+
+  @@map("motoqueiros")
+}
+
+model Usuario {
+  id    String @id @default(uuid())
+  nome  String
+  email String
+  senha String
+
+  create_at DateTime? @default(now())
+  update_at DateTime? @default(now())
+
+  @@map("usuarios")
+}
+
+model Cliente {
+  id          String @id @default(uuid())
+  nome        String
+  email       String
+  cpf_cnpj    String
+  rg_ie       String
+  celular     String
+  rua         String
+  complemento String
+  bairro      String
+  cidade      String
+  estado      String
+  senha       String
+
+  create_at DateTime? @default(now())
+  update_at DateTime? @default(now())
+
+     pedidos Pedido []
+
+    
+
+  @@map("clientes")
+}
+
+model Categoria {
+  id   String @id @default(uuid())
+  nome String
+
+  create_at DateTime? @default(now())
+  update_at DateTime? @default(now())
+
+  produtos Produto[]
+
+  @@map("categorias")
+}
+
+model Produto {
+  id         String  @id @default(uuid())
+  nome       String
+  fabricante String?
+  quantidade String
+  preco      String
+  banner     String
+
+  create_at DateTime? @default(now())
+  update_at DateTime? @default(now())
+
+  categorias  Categoria @relation(fields: [categoriaId], references: [id])
+  categoriaId String
+    
+    
+   itens Item []
+
+  @@map("produtos")
+}
+
+model Item {
+  id                 String @id @default(uuid())
+ 
+  quantidade           String
+
+  create_at  DateTime? @default(now())
+  update_at  DateTime? @default(now())
+
+   produtos Produto @relation(fields: [ProdutoId], references: [id])
+   ProdutoId String
+
+    pedidos Pedido @relation(fields: [PedidoId],references: [id])
+    PedidoId String 
+  
+  @@map("itens")
+}
+
+model Pedido{
+  id                   String @id @default(uuid())
+  numero_do_pedido     String
+  Valor_Total          String
+  status               String @default("Rascunho")
+  rascunho             Boolean @default(true)
+  entrega              Boolean @default(false)
+  entregador           String?
+  create_at DateTime? @default(now())
+  update_at DateTime? @default(now())
+
+ 
+
+     clientes Cliente @relation(fields: [ClienteId],references: [id])
+    ClienteId String 
+ 
+  itens Item []
+ 
+  @@map("pedidos")
+}

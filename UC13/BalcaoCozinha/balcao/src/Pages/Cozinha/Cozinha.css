@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size:'sans-serif'
+}
+.numero{
+    margin-top: 10px;
+}
+.numero h1{
+    text-align: center;
+    align-items: center;
+    
+}
+.todosnumeros{
+margin-inline:inherit;
+    
+    
+}
+.containermap{
+margin-inline-start: 30px;
+margin-inline-end: 30px;
+
+
+}
+.containermap2{
+    display: flex;
+    justify-content: space-between;
+}
+.containermap3{
+    display: flex;
+    justify-content: space-between;
+}
+    
+   

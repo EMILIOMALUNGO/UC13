@@ -1,0 +1,139 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  //provider = "postgresql"
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Gradedausc {
+  id       String @id @default(uuid())
+  nome     String
+  banner   String
+  
+
+
+  categorias  Categoria @relation(fields: [categoriaId], references: [id])
+  categoriaId String
+
+  
+  create_at DateTime? @default(now())
+  update_at DateTime? @default(now())
+
+  @@map("gradedausc")
+}
+
+model Usuario {
+  id    String @id @default(uuid())
+  nome  String
+  email String
+  senha String
+  
+
+  create_at DateTime? @default(now())
+  update_at DateTime? @default(now())
+
+    categorias  Categoria @relation(fields: [categoriaId], references: [id])
+  categoriaId String
+
+
+
+  @@map("usuarios")
+}
+
+//a Anunciofalta por exemplo é uma entidade fraca
+model Anunciofalta {
+  id          String  @id @default(uuid())
+  nome        String
+  banner     String
+
+ 
+  categorias  Categoria @relation(fields: [categoriaId], references: [id])
+  categoriaId String
+
+  
+
+  create_at DateTime? @default(now())
+  update_at DateTime? @default(now())
+
+  @@map("anunciofaltas")
+}
+
+//a categoria por exemplo é uma entidade forte 
+model Categoria {
+  id   String @id @default(uuid())
+  nomes String
+  
+
+  usuarios Usuario []
+ gradedausc Gradedausc []
+ anunciofaltas Anunciofalta []
+ atividadeVagas AtividadeVaga []
+ reuniaos Reuniao []
+ notasalunos Notasaluno []
+
+
+  create_at DateTime? @default(now())
+  update_at DateTime? @default(now())
+
+  @@map("categorias")
+}
+
+model AtividadeVaga {
+  id         String  @id @default(uuid())
+  nome       String
+  banner     String
+
+  categorias  Categoria @relation(fields: [categoriaId], references: [id])
+  categoriaId String
+
+  
+
+  create_at DateTime? @default(now())
+  update_at DateTime? @default(now())
+
+  @@map("atividadeVagas")
+}
+
+model Reuniao {
+  id          String   @id @default(uuid())
+  nome       String
+  banner     String
+
+  categorias  Categoria @relation(fields: [categoriaId], references: [id])
+  categoriaId String
+
+
+
+  create_at DateTime? @default(now())
+  update_at DateTime? @default(now())
+
+  @@map("reuniaos")
+}
+
+model Notasaluno {
+  id         String  @id @default(uuid())
+  nome       String
+  ra         String
+  notaB1     Decimal @db.Decimal(9,2)
+  notaB2     Decimal @db.Decimal(9,2)
+  notaB3     Decimal @db.Decimal(9,2)
+  media      Decimal @db.Decimal(9,2)
+  falta      Decimal @db.Decimal(9,2)
+
+
+  categorias  Categoria @relation(fields: [categoriaId], references: [id])
+  categoriaId String
+
+ 
+
+  create_at DateTime? @default(now())
+  update_at DateTime? @default(now())
+
+  @@map("notasalunos")
+}

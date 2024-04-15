@@ -1,0 +1,47 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.conatinerbalcao{
+    margin-top: 20px;
+}
+.pedido h1{
+    align-items:center;
+    text-align:center;
+}
+.centro{
+    margin-top: 10px;
+}
+table{
+   padding: auto;
+    margin-inline-start: 200px;   
+}
+
+.info{
+    padding: 7px;
+        text-align: center;
+        align-items: center;
+       background-color:#c7782f;
+}
+.infoBotao1{
+    padding:9px;
+    color: white;
+    background: rgb(32, 15, 190);
+}
+.infoBotao2{
+    padding:9px;
+    color: white;
+    background: rgb(190, 41, 15);
+}
+
+.BalcaoCozinha{
+    margin-top: 20px;
+}
+.BalcaoCozinha h1{
+    align-items: center;
+    text-align: center;
+    color: #293763;
+    
+}

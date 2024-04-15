@@ -1,0 +1,50 @@
+.conteinerLogin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .cabecalhoLogin{
+            background-color: #f77f06;
+            width: 100%;
+            text-align: center;
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+
+            h1{
+                color: #e6e8e8;
+                font-weight: bold;
+            }
+        }
+        
+        .formLogin{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+            input{
+            margin-top: 0.8rem;
+            height: 2rem;
+            width: 100%;
+            background-color: #e7eae9;
+            text-align: center;
+            border-radius: 0.5rem;
+            border-width: 0;
+            outline: 0;
+        }
+        
+        button{
+            margin-top: 0.8rem;
+            height: 2rem;
+            width: 100%;
+            background-color: #055bfa;
+            text-align: center;
+            border-radius: 0.5rem;
+            border-width: 0;
+
+            color: #FFFFFF;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+    }
+}

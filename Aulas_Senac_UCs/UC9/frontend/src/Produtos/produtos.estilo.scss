@@ -1,0 +1,21 @@
+.conteinerProdutosCadastro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    form{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+       
+        label{
+            margin-top: 1rem;
+        }
+
+        button{
+            margin-top: 1rem;
+        }
+    }
+}

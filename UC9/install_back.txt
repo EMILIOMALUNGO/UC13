@@ -1,0 +1,31 @@
+- instalação backend
+yarn init -y
+- instalando o typescript
+yarn add typescript -D
+- instalando o express
+yarn add express
+yarn add @types/express -D
+- inicializando o typescript
+yarn tsc --init
+- instalando o modo de script typescript para subir o servidor
+yarn add ts-node-dev -D
+- instalando tratativas de erros
+yarn add express-async-errors
+- liberar para qualquer ip acessar
+yarn add cors
+yarn add @types/cors -D
+- instalar o Prisma para migrate de base de dados
+yarn add prisma
+yarn add @prisma/client
+npx prisma init
+- Criptografar senhas
+yarn add bcryptjs
+yarn add @types/bcryptjs -D
+- Token JWT
+yarn add jsonwebtoken
+yarn add @types/jsonwebtoken -D 
+- Acessar as variaveis de ambiente
+yarn add dotenv
+- Biblioteca de Imagens
+yarn add multer
+yarn add @types/multer -D

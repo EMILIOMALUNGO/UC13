@@ -1,0 +1,36 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size:'sans-serif'
+}
+.categoria{
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+.conteinerProdutosCadastro {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+ 
+
+    form {
+
+        display: flex;
+
+        flex-direction: column;
+
+        width: 100%;
+
+    }
+
+}
