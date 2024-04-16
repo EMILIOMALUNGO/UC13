@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Image, StyleSheet,SafeAreaView , Button } from 'react-native';
+import { View, Text, TouchableOpacity, Image, StyleSheet,SafeAreaView , Button, Alert } from 'react-native';
 import { useEffect, useState } from 'react';
 import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -13,7 +13,7 @@ export default function Carrinho() {
 
   const route = useRoute();
   const { id } = route.params;
-  //console.log(id)
+  Alert(id)
 
   const [produto, setProduto] = useState({})
   const [nome, setNome] = useState("")

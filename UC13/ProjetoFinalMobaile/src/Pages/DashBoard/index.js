@@ -1,12 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, Image, ScrollView } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 
-
+import apiCliente from "../../API/apiCliente";
 export default function DashBoard() {
 
   const navigation = useNavigation()
+  const [grupos, setGrupos] = useState([''])
+ 
+
+  async function handleListarCategoria(){
+    try{
+      const respopnse =  await apiCliente.get("/ListarCategorias")
+      setGrupos(respopnse.data)     
+    }
+    catch(error){
+      console.log(error)
+    } 
+  }
+
+ // console.log(grupos)
+  useEffect(() => {
+    handleListarCategoria()
+  }, [grupos])
+
+
+
+  
 
   return (
     <SafeAreaView style={styles.container}>
@@ -18,28 +39,27 @@ export default function DashBoard() {
       <View style={styles.container14} >
 
         <View style={styles.container15}>
-          <TouchableOpacity onPress={() => navigation.navigate("GrupoA")}>
-            <Text style={styles.testo3}>Grupo A</Text>
-          </TouchableOpacity>
-        </View>
+         {
+          grupos.map((item)=>{
+             return(
+              <View key={item.id}>
+                <View>
+                  
+               <TouchableOpacity onPress={() => navigation.navigate("GrupoA", { id: item.id })}>
+                     <Text style={styles.testo3}>{item.nomes}</Text>
+                </TouchableOpacity>
 
-        <View style={styles.container15}>
-          <TouchableOpacity onPress={() => navigation.navigate("GrupoB")}>
-            <Text style={styles.testo3}>Grupo B</Text>
-          </TouchableOpacity>
-        </View>
+              
+                </View>
+              </View>
+             )
+          })
 
-        <View style={styles.container15}>
-          <TouchableOpacity onPress={() => navigation.navigate("GrupoC")}>
-            <Text style={styles.testo3}>Grupo C</Text>
-          </TouchableOpacity>
+         }
         </View>
+          
 
-        <View style={styles.container15}>
-          <TouchableOpacity onPress={() => navigation.navigate("GrupoD")}>
-            <Text style={styles.testo3}>Grupo D</Text>
-          </TouchableOpacity>
-        </View>
+        
       </View>
 
    
@@ -197,6 +217,7 @@ marginBottom:20,
     textAlign: 'center',
     alignItems: 'center',
     color: '#ffffff',
+    marginStart:50,
   },
 
   testo4: {

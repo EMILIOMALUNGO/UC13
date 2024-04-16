@@ -1,78 +1,60 @@
 import React, { useEffect, useState } from 'react' 
 import {Text, View,TouchableOpacity,StyleSheet} from 'react-native'
 import {Picker} from '@react-native-picker/picker';
-
+import { useRoute } from '@react-navigation/native';
+import { useNavigation } from "@react-navigation/native";
 
 import apiCliente from '../../../API/apiCliente'
 
 
+export default function GrupoA({route}){
+    const navigation = useNavigation()
 
-export default function GrupoA(){
+    const { id } = route.params;
+    const [listar, setListar] = useState({})
 
-    const [listarCategoria, setListarCategoria]= useState([''])
-   const [listar, setListar]= useState([''])
-
-
-
-    async function handleListar(){
-        const respopnse = await apiCliente.get('/ListarCategorias')
-        setListarCategoria(respopnse.data)
+    async function handleGA(){
+        try{
+            const response = await  apiCliente.get(`/ListarCategoriaID/${id}`)
+            setListar(response.data)
+            console.log(response.data)
+        }catch(error){
+            console.log(error)
+        }
+        
     }
+    
     useEffect(()=>{
-        handleListar()
+      handleGA()
     },[])
 
+    console.log()
+//
+   // const [listarCategoria, setListarCategoria]= useState([''])
+   //const [listar, setListar]= useState([''])
 
-   
-    
-    async function hanDlePEAR(id){
-        alert(id)
-         //   try{        
-         //    const respopnse =  await apiCliente.get(`/ListarCategoriaID/${id}`) 
 
-               
-      //  }catch(error){
-      //  console.log(error)
 
-  //  }
-}
+  
     return(
         <View style={styles.container}>
 
-            <View style={styles.containe1}>
+          
             <View style={styles.containe2}>
             <Text style={styles.containe3}>Quer saber os integrante do GrupoA?</Text>
             <Text style={styles.containe3}>Seleciona Abaixo</Text>
             </View>
-           
-            <View style={styles.containe4}>
-                 <Picker
-                    selectedValue={listar}
-                    onValueChange={(itemValue,itemIndex) =>
-                        setListar(itemValue)}>
-                            
-                       <option>Selecione...</option>
-
-                    {  
-                            listarCategoria.map((pegar)=>{
-                                //console.log(pegar)
-                               return(
-                            
-                                <Picker.Item  label={pegar.nomes} value={pegar.id} key={pegar.id}/>
-
-                                              
-                            ) 
-                        })
-                    }
-
-                 </Picker>
+              <View>
+                
+              </View>
+         
                  <View style={styles.containe5}> 
-                <TouchableOpacity onPress={(e)=> hanDlePEAR(pegar.id)}>
+                <TouchableOpacity onPress={handleGA}>
                  <Text style={styles.containe6}>Buscar</Text>
                  </TouchableOpacity>
                  </View>
-                 </View>
-            </View>
+                
+            
         </View>
     )
 }
