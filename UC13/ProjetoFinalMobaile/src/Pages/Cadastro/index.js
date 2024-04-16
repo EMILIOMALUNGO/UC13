@@ -66,15 +66,11 @@ async function hancadastrar(e) {
     try {
         e.preventDefault()
     
-
-        const data = new FormData()
-
-        data.append("nome", nome)
-        data.append("email", email)
-        data.append("password", password)
-        
-
-        const response = await apiCliente.post('/CriarUsuarios', data)
+        const categoriaId = idcategoria
+    
+        const response = await apiCliente.post('/CriarUsuarios',{
+            nome,email,password,idcategoria
+        } )
        //console.log(response)
        alert(response.data.dados)
        window.location.reload()
@@ -104,20 +100,26 @@ BuscarCategotia()
     return (
 
         <SafeAreaView style={styles.container}>
-            <View>
-                <View>
-                <Text>Categorias</Text>
+            <View style={styles.contai1}>
+
+                <View style={styles.contai2}>
+                <Text style={styles.contai3}>Categorias</Text>
                 </View>
-                <View>
-                    <TextInput placeholder='Digita a categoria'
+
+                <View style={styles.contai4}>
+
+                <View >
+                    <TextInput style={styles.contai5} placeholder='Digita a categoria'
                     value={nomes} onChangeText={setNomes}/>
                 </View>
-                <View>
+                <View style={styles.contai6}>
                     <TouchableOpacity onPress={EndCategoria1}>
                         <Text style={styles.buton}>Cadastro</Text>
                     </TouchableOpacity>
                 </View>
 
+
+                </View>
             </View>
              
        
@@ -142,7 +144,7 @@ BuscarCategotia()
                                 //console.log(pegar)
                                return(
                             
-                                <Picker.Item  label={pegar} value={pegar} />
+                                <Picker.Item  label={pegar.nomes} value={pegar.id} key={pegar.id} />
                                               
                                ) 
                             })
@@ -189,8 +191,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffff',
         flex:1,
     },
-    container11:{
-        
+    contai1:{
+     marginTop:10,
+    },
+    container11:{     
         marginTop:20,
         marginStart:20,
         marginRight:20,
@@ -230,10 +234,34 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         backgroundColor: "#342246",
         borderRadius: 3,
-        marginBottom:20,
+        color:"#fff",
      
     },buton1:{
         textAlign: "center",
         color: '#ffffff',
+    },
+    contai2:{
+        padding:10,
+        alignItems:'center',
+        textAlign:'center',
+    },
+    contai3:{
+        fontSize:20
+    },
+    contai4:{
+        flexDirection:"row",     
+        width:'100',
+        gap:10,
+        marginStart:30,
+    },
+    contai5:{
+        borderColor:"#000",
+        borderWidth:2,
+        padding:11,
+        width:250,
+        
+       
+     
     }
+
 })

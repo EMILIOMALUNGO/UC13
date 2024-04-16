@@ -18,10 +18,7 @@ import GrupoA from "../Pages/Grupos/GrupoA";
 import GrupoB from "../Pages/Grupos/GrupoB";
 import GrupoC from "../Pages/Grupos/GrupoC";
 import GrupoD from "../Pages/Grupos/GrupoD";
-import DashGrupoA from "../Pages/GrupoDash/DashGrupoA";
-import DashGrupoC from "../Pages/GrupoDash/DashGrupoC";
-import DashGrupoB from "../Pages/GrupoDash/DashGrupoB";
-import DashGrupoD from "../Pages/GrupoDash/DashGrupoD";
+
 import AnuncioFaltas from "../Pages/Atividades/AnuncioFaltas";
 import AtividadeMeses from "../Pages/Atividades/AtividadeMeses";
 import AtividadeReuniao from "../Pages/Atividades/AtividadeReuniao";
@@ -68,10 +65,7 @@ export default function Routes (){
              <Stack.Screen name="GrupoB" component={GrupoB} options={{ headerShown: false}}/>
              <Stack.Screen name="GrupoC" component={GrupoC} options={{ headerShown: false}}/>
              <Stack.Screen name="GrupoD" component={GrupoD} options={{ headerShown: false}}/>
-             <Stack.Screen name="DashGrupoA" component={DashGrupoA} options={{ headerShown: false}}/>
-             <Stack.Screen name="DashGrupoB" component={DashGrupoB} options={{ headerShown: false}}/>
-             <Stack.Screen name="DashGrupoC" component={DashGrupoC} options={{ headerShown: false}}/>
-             <Stack.Screen name="DashGrupoD" component={DashGrupoD} options={{ headerShown: false}}/>
+             
              <Stack.Screen name="AnuncioFaltas" component={AnuncioFaltas} options={{ headerShown: false}}/>
              <Stack.Screen name="AtividadeMeses" component={AtividadeMeses} options={{ headerShown: false}}/>
              <Stack.Screen name="AtividadeReuniao" component={AtividadeReuniao} options={{ headerShown: false}}/>

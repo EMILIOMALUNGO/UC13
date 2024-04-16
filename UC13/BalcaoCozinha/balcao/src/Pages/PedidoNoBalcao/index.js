@@ -26,9 +26,7 @@ export default function PedidoNoBalcao() {
     const [listarItenPedido, setListarItenPedido] = useState([''])
     const [produto, setProduto] = useState([''])
     const [fechar, setFechar] = useState([''])
-   // const [valor, setValor] = useState(1)
-   // const [mult, setMut] = useState()
-    //const [itens, setItens] = useState([1]);
+
     const [apagaritem, setApagaritem] = useState([''])
 
 
