@@ -6,14 +6,14 @@ interface AlterarAtividade {
     id:string
     nome:string
     banner:string
-    categoriaId:string
+
 
 }
 
 
 class AlterarAtividadeVagaServer{
 
-    async execute({id,nome,banner,categoriaId}:AlterarAtividade){
+    async execute({id,nome,banner}:AlterarAtividade){
 
         const AlterarAtividade = await prismaClient.atividadeVaga.update({
             where:{
@@ -21,7 +21,7 @@ class AlterarAtividadeVagaServer{
             },data:{
                 nome:nome,
                 banner:banner,
-                categoriaId:categoriaId
+                
             }
         })
         return(AlterarAtividade )

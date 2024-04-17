@@ -6,7 +6,7 @@ import { CriarAtividadeServer } from "../../Services/AtividadeVaga/CriarAtividad
 class CriarAtividadeController {
     async handle(req:Request, res:Response){
 
-            const {nome,banner,categoriaId} = req.body
+            const {nome,banner} = req.body
             // console.log("cont:",nome,categoriaId)
             
             if (!req.file) {
@@ -17,7 +17,7 @@ class CriarAtividadeController {
                 const {originalname, filename:banner} = req.file
                 const CriarProdutoController = new CriarAtividadeServer()
                 const Produto = await CriarProdutoController.execute({
-                    nome,banner,categoriaId,
+                    nome,banner,
                 })
                // console.log(Produto)
                   return res.json(Produto)

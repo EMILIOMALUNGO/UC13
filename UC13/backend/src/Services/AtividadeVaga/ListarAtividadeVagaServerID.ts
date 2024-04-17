@@ -15,7 +15,7 @@ class ListarAtividadeVagaServerID{
                },select:{
                    nome : true,     
                    banner :true,
-                   categoriaId:true,
+                
    
                }
            })

@@ -20,7 +20,7 @@ class EditarNotasalunoServer{
                 notaB3  :true,
                 media  :true,
                 falta  :true,
-                categoriaId:true,
+                usuariosId:true,
               
         
         }})

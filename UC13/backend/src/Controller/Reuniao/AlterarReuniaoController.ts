@@ -5,10 +5,10 @@ import { AlterarReuniaoServer } from "../../Services/Reuniao/AlterarReuniaoServe
 class AlterarReuniaoController{
  async handle(req:Request, res:Response){
 
-   const {id,nome,banner,categoriaId} = req.body
+   const {id,nome,banner} = req.body
    const alterarReuniaoController = new AlterarReuniaoServer()
    const  alterarReuniao = await  alterarReuniaoController.execute({
-   id, nome,banner,categoriaId
+   id, nome,banner
    })
    return res.json(alterarReuniao)
  }

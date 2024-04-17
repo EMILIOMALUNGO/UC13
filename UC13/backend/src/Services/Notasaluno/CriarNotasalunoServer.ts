@@ -10,15 +10,15 @@ interface CriarProduto{
     notaB3  :number 
     media  :number
     falta  :number
-    categoriaId: string
+    usuariosId: string
     
 }
 
 class CriarNotasalunoServer{
-    async execute({nome,ra,notaB1,notaB2,notaB3,media,falta,categoriaId}:CriarProduto){
+    async execute({nome,ra,notaB1,notaB2,notaB3,media,falta,usuariosId}:CriarProduto){
        // console.log("ser:",nome,fabricante,quantidade,banner,preco,tamanho,cor,categoriaId)
 
-       if (!nome ||!ra ||!notaB1 ||!notaB2 ||!notaB3 ||!media ||!falta ||!categoriaId ) {
+       if (!nome ||!ra ||!notaB1 ||!notaB2 ||!notaB3 ||!media ||!falta ||!usuariosId ) {
         throw new Error("Preencha os campos vasios")          
    }
          
@@ -32,7 +32,7 @@ class CriarNotasalunoServer{
                     notaB3:notaB3,  
                     media :media,  
                     falta :falta,
-                    categoriaId:categoriaId,
+                    usuariosId:usuariosId,
                     
                 }, select:{
                         nome: true,
@@ -42,7 +42,7 @@ class CriarNotasalunoServer{
                         notaB3:true,
                         media : true,
                         falta :true,
-                        categoriaId:true,
+                        usuariosId:true,
                         
                 }
 

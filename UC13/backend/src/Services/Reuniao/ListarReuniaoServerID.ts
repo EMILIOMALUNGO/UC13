@@ -13,8 +13,7 @@ class ListarReuniaoServerID{
                 id:id
             },select:{
                 nome : true,     
-                banner :true,
-                categoriaId:true,
+                banner :true              
 
             }
         })

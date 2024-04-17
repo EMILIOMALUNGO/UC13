@@ -7,10 +7,10 @@ import { AlterarAtividadeVagaServer } from "../../Services/AtividadeVaga/Alterar
 class AlterarAtividadeVagaController{
     async handle(req:Request, res:Response){
 
-        const {id,nome,banner,categoriaId} = req.body
+        const {id,nome,banner} = req.body
         const alterarAtividadeVagaController = new AlterarAtividadeVagaServer()
         const alterarAtividade = await alterarAtividadeVagaController.execute({
-        id, nome,banner,categoriaId
+        id, nome,banner
         })
         return res.json(alterarAtividade )
       }

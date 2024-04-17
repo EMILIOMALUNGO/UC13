@@ -6,8 +6,8 @@ import { CriarReuniaoServer } from "../../Services/Reuniao/CriarReuniaoServer";
 class CriarReuniaoController{
     async handle(req:Request, res:Response){
 
-            const {nome,banner,categoriaId} = req.body
-             console.log("cont:",nome,categoriaId)
+            const {nome,banner} = req.body
+             //console.log("cont:",nome)
             
             if (!req.file) {
                throw new Error("imagem com problema")
@@ -17,7 +17,7 @@ class CriarReuniaoController{
                 const {originalname, filename:banner} = req.file
                 const criarReuniaoController = new CriarReuniaoServer()
                 const Produto = await criarReuniaoController.execute({
-                    nome,banner,categoriaId,
+                    nome,banner
                 })
                // console.log(Produto)
                   return res.json(Produto)

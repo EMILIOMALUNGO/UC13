@@ -8,11 +8,11 @@ import { AlterarNotasalunoServer } from "../../Services/Notasaluno/AlterarNotasa
 
 class AlterarNotasalunoController{
     async handle(req:Request, res:Response){
-        const {id,nome,ra,notaB1,notaB2,notaB3,media,falta,categoriaId} = req.body
+        const {id,nome,ra,notaB1,notaB2,notaB3,media,falta,usuariosId} = req.body
         
         const alterarNotasalunoController = new  AlterarNotasalunoServer()
         const AlterarNotas = await alterarNotasalunoController.execute({
-        id,nome,ra,notaB1,notaB2,notaB3,media,falta,categoriaId
+        id,nome,ra,notaB1,notaB2,notaB3,media,falta,usuariosId
     })
     return res.json(AlterarNotas)
  }

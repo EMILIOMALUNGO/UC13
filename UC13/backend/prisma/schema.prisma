@@ -34,6 +34,7 @@ model Usuario {
   email String
   senha String
   
+notasalunos Notasaluno []
 
   create_at DateTime? @default(now())
   update_at DateTime? @default(now())
@@ -47,22 +48,7 @@ model Usuario {
 }
 
 //a Anunciofalta por exemplo é uma entidade fraca
-model Anunciofalta {
-  id          String  @id @default(uuid())
-  nome        String
-  banner     String
 
- 
-  categorias  Categoria @relation(fields: [categoriaId], references: [id])
-  categoriaId String
-
-  
-
-  create_at DateTime? @default(now())
-  update_at DateTime? @default(now())
-
-  @@map("anunciofaltas")
-}
 
 //a categoria por exemplo é uma entidade forte 
 model Categoria {
@@ -70,12 +56,8 @@ model Categoria {
   nomes String
   
 
-  usuarios Usuario []
+ usuarios Usuario []
  gradedausc Gradedausc []
- anunciofaltas Anunciofalta []
- atividadeVagas AtividadeVaga []
- reuniaos Reuniao []
- notasalunos Notasaluno []
 
 
   create_at DateTime? @default(now())
@@ -89,10 +71,6 @@ model AtividadeVaga {
   nome       String
   banner     String
 
-  categorias  Categoria @relation(fields: [categoriaId], references: [id])
-  categoriaId String
-
-  
 
   create_at DateTime? @default(now())
   update_at DateTime? @default(now())
@@ -104,11 +82,6 @@ model Reuniao {
   id          String   @id @default(uuid())
   nome       String
   banner     String
-
-  categorias  Categoria @relation(fields: [categoriaId], references: [id])
-  categoriaId String
-
-
 
   create_at DateTime? @default(now())
   update_at DateTime? @default(now())
@@ -126,11 +99,8 @@ model Notasaluno {
   media      Decimal @db.Decimal(9,2)
   falta      Decimal @db.Decimal(9,2)
 
-
-  categorias  Categoria @relation(fields: [categoriaId], references: [id])
-  categoriaId String
-
- 
+  usuarios  Usuario @relation(fields: [usuariosId], references: [id])
+  usuariosId String
 
   create_at DateTime? @default(now())
   update_at DateTime? @default(now())

@@ -1,3 +1,4 @@
+
 import React from "react"; 
 import { Link,useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -10,7 +11,7 @@ import apiFront from "../../API/apiFront";
 
 import "./produto.css"
 
-export default function CadastrarCoisas (){
+export default function Gradedausc(){
     const navigation = useNavigate()
 // ess parte é do categorias 
     const [nomes, setNomes] = useState([''])
@@ -130,7 +131,7 @@ BuscarCategotia()
         <div className="conteinerProdutosCadastro">
         
         <div>
-            <h1>Grade das UCs</h1>
+            <h1>Grade das Ucs</h1>
         </div>
 
         <div>

@@ -1,6 +1,6 @@
 import React from "react"; 
-import { Link,useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+
+import {useState } from "react";
 
 import Header from "../../Components/Header";
 import {toast} from "react-toastify"
@@ -11,13 +11,12 @@ import apiFront from "../../API/apiFront";
 import "./produto.css"
 
 export default function NotasAlunos (){
-    const navigation = useNavigate()
+   
 // ess parte é do categorias 
-    const [nomes, setNomes] = useState([''])
-    const [categorias1, setCategorias1]= useState("")
+
   //termina aqui
   //essa parte é do produto 
-  const [categorias, setCategorias] = useState([""])
+  
   const [nome, setNome] = useState("")
   const [ra, setRa] =  useState('')
   const [notaB1, setNotaB1]= useState ('')
@@ -26,34 +25,9 @@ export default function NotasAlunos (){
   const [media, setMedia] = useState ("") 
   const [falta, setFalta] = useState("")
    
-  const [idcategoria, setIdCategoria] = useState([""])
 
-  const [imagem, setImagem] = useState(null) 
-  
-  
-    
-    async function EndCategoria1(e){
-        try{      
-        e.preventDefault()
-        if (!nomes) {      
-            toast.warn("existem campos vazios")        
-        }
-        const response = await apiFront.post('/CriarCategorias',{
-            nomes
-        })
-        if (response) {
-            toast.success('uma categoria foi cadastrado')
-             setNomes("")
-        }}catch(error){
 
-        
-    }}
-    useEffect(()=>{    
-    EndCategoria1() 
-    },[categorias1])
- 
 
-    
 
 
 async function hancadastrar(e) {
@@ -64,10 +38,10 @@ async function hancadastrar(e) {
 
     try {
         e.preventDefault()
-        const categoriaId = idcategoria
+       
 
         const response = await apiFront.post('/CriarNota',{
-            nome,ra,notaB1,notaB2,notaB3,media,falta,categoriaId 
+            nome,ra,notaB1,notaB2,notaB3,media,falta
         })
        console.log(response.data)
        toast.success(response.data.dados)
@@ -86,35 +60,11 @@ async function hancadastrar(e) {
     setFalta('')  
 }
 
-useEffect(()=>{
-
-    async function BuscarCategotia(){
-        const response =  await apiFront.get("/ListarCategorias")
-        setCategorias(response.data)
-        return
-    }
-    
-BuscarCategotia()
-},[categorias])
 
     return(
         <div>
             <Header />
-        <div className="categoria">
-                <legend> Categorias</legend>
-           <form  onSubmit={EndCategoria1}>
-        <div>
-            Nome: <input placeholder="coloca a categoria" onChange={(e)=> setNomes(e.target.value)} value={nomes}/>
-        </div>
-        <div>
-            <button type="submit">Enviar</button>
-        </div>
-         </form>
-        </div>
-
-            
-               
-
+   
         <div className="conteinerProdutosCadastro">
         
         <div>
@@ -123,25 +73,7 @@ BuscarCategotia()
 
         <div>
             <form onSubmit={hancadastrar}>
-                <select
-                    value={idcategoria}
-                    onChange={(e) => setIdCategoria(e.target.value)}>
-
-                    <option>Selecione...</option>
-                    {categorias.map((pegar) => {
-                        return (
-                            <option value={pegar.id} key={pegar.id}>
-                                {pegar.nomes}
-
-                            </option>
-
-                        )
-
-                    })}
-
-                </select>
-
- 
+                
                 <label>nome</label>
                 <input type="test" onChange={(e) => setNome(e.target.value)} value={nome} />
 

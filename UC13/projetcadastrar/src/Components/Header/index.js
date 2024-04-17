@@ -13,13 +13,13 @@ export default function Header() {
               <div id="superior">
              
                 <div className="dropdown">
-                  <button className="dropbtn"><a href="/CadastroPessoas" target="_self">Cadastro Pessoas</a><i className="fa fa-caret-down"></i></button>  
+                  <button className="dropbtn"><a href="/Usuario" target="_self">Cadastro de Usuario</a><i className="fa fa-caret-down"></i></button>  
                 </div>
 
                 <div className="dropdown">
-                  <button className="dropbtn">Cadastrar Coisas<i className="fa fa-caret-down"></i> </button>
+                  <button className="dropbtn">Gradedauscs<i className="fa fa-caret-down"></i> </button>
                   <div className="dropdown-content">
-                    <a href="/CadastrarCoisas" target="_self">Cadastrar Coisas</a>
+                    <a href="/Gradedausc" target="_self">Cadastrar Coisas</a>
                   </div>
                 </div>  
 
@@ -45,12 +45,7 @@ export default function Header() {
                   </div>
                 </div> 
                 
-                <div className="dropdown">
-                  <button className="dropbtn">Usuario<i className="fa fa-caret-down"></i> </button>
-                  <div className="dropdown-content">
-                    <a href="/Usuario" target="_self">Usuario</a>
-                  </div>
-                </div> 
+         
                 
               </div>
             </div>        

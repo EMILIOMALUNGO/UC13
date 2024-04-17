@@ -6,12 +6,12 @@ interface AlterarReuniao{
     id:string
     nome:string
     banner:string
-   categoriaId:string
+  
 }
 
 
 class AlterarReuniaoServer{
-    async execute({id,nome,banner,categoriaId}:AlterarReuniao){
+    async execute({id,nome,banner}:AlterarReuniao){
 
         const alterar = await prismaClient.reuniao.update({
             where:{
@@ -19,7 +19,7 @@ class AlterarReuniaoServer{
             },data:{
                 nome:nome,
                 banner:banner,
-                categoriaId:categoriaId
+               
             }
         })
         return(alterar)

@@ -4,26 +4,24 @@ import prismaClient from "../../prisma";
 interface CriarReuni{
     nome:string
     banner:string
-    categoriaId: string 
+   
     
 
 }
 
 class CriarReuniaoServer{
-    async execute({nome,banner,categoriaId}:CriarReuni){
-        console.log("server:",nome,categoriaId)
+    async execute({nome,banner}:CriarReuni){
+        //console.log("server:",nome,banner)
        
              const  CriarReuniao = await prismaClient.reuniao.create({
                  data:{
                      nome :  nome,     
                      banner :banner,
-                  
-                     categoriaId:categoriaId,
                     
                  },select:{
                      nome : true,     
                       banner :true,
-                      categoriaId:true,
+                   
                  }
  
              })

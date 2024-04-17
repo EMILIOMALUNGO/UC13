@@ -26,9 +26,9 @@ export default function GrupoA({route}){
     
     useEffect(()=>{
       handleGA()
-    },[])
+    },[listar])
 
-    console.log()
+    console.log(listar)
 //
    // const [listarCategoria, setListarCategoria]= useState([''])
    //const [listar, setListar]= useState([''])
@@ -46,6 +46,11 @@ export default function GrupoA({route}){
             </View>
               <View>
                 
+              {listar.nomes &&  <Text>NOMES:{listar.nomes}</Text>}
+           
+             
+         
+             
               </View>
          
                  <View style={styles.containe5}> 
@@ -65,7 +70,7 @@ const styles = StyleSheet.create({
         flex:1,
     },
     containe1:{
-      marginTop:70,
+      marginTop:100,
     },
     containe2:{
         alignItems:'center',

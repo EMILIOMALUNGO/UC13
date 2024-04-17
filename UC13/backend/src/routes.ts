@@ -36,12 +36,7 @@ import { AlterarAtividadeVagaController } from './Controller/AtividadeVaga/Alter
 import { ApagarAtividadeVagaController } from './Controller/AtividadeVaga/ApagarAtividadeVagaController'
 import { ListartAtividadeVagaControllerID } from './Controller/AtividadeVaga/ListartAtividadeVagaControllerID'
 
-import { CriarAnuncioFaltaController } from './Controller/Anunciofalta/CriarAnuncioFaltaController'
-import { ListarAnuncioFaltaController } from './Controller/Anunciofalta/ListarAnuncioFaltaController'
-import { EditarAnuncioFaltaController } from './Controller/Anunciofalta/EditarAnuncioFaltaController'
-import { AlterarAnuncioFaltaController } from './Controller/Anunciofalta/AlterarAnuncioFaltaController'
-import { ApagarAnuncioFaltaController } from './Controller/Anunciofalta/ApagarAnuncioFaltaController'
-import { ListarAnuncioFaltaControllerID } from './Controller/Anunciofalta/ListarAnuncioFaltaControllerID'
+
 
 
 import { CriarReuniaoController } from './Controller/Reuniao/CriarReuniaoController'
@@ -109,13 +104,7 @@ router.put('/AlterarAtividade/:id', isAutenticado, new AlterarAtividadeVagaContr
 router.delete('/ApagarAtividade/:id',isAutenticado, new ApagarAtividadeVagaController().handle)
 router.get('/ListarAtividade/:id', isAutenticado, new ListartAtividadeVagaControllerID().handle)
 
-//Estrutura de CriarAnuncio 
-router.post('/CriarAnuncio', upload.single('file'), new CriarAnuncioFaltaController().handle)
-router.get('/ListarAnuncio', new ListarAnuncioFaltaController().handle)
-router.get('/EditarAnuncio/:id',  new  EditarAnuncioFaltaController().handle)
-router.put('/AlterarAnuncio/:id', isAutenticado, new AlterarAnuncioFaltaController().handle)
-router.delete('/ApagarAnuncio/:id',isAutenticado, new ApagarAnuncioFaltaController().handle)
-router.get('/ListarAnuncio/:id', isAutenticado, new  ListarAnuncioFaltaControllerID().handle)
+
 
 //Estrutura de Reuniao  CriarNotasalunoControllr
 router.post('/CriarReuniao', upload.single('file'), new CriarReuniaoController().handle)

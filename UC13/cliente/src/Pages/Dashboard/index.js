@@ -252,6 +252,21 @@ const styles = StyleSheet.create({
     textAlign:'center',
     borderRadius:5,
   },
+  iamgem: {
+    width: 130,
+    height: 150,
+   
+    borderRadius:10
+  },
+  containerBack:{
+    borderBottomColor: '#DB0F1D',
+    borderBottomWidth: 0.5,
+    flexDirection:'row',
+    marginStart:30,
+   
+    marginBottom:10,
+    gap:60,
+  },
 
 
 })

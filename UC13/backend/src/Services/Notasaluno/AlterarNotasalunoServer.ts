@@ -12,13 +12,13 @@ interface AlterarNota{
     notaB3  : number
     media  : number
     falta  : number
-    categoriaId: string
+    usuariosId: string
     
 }
 
 
 class AlterarNotasalunoServer{
-  async execute({id,nome,ra,notaB1,notaB2,notaB3,media,falta,categoriaId}:AlterarNota){
+  async execute({id,nome,ra,notaB1,notaB2,notaB3,media,falta,usuariosId}:AlterarNota){
          
     const AlterarNotas = await prismaClient.notasaluno.update({
         where:{
@@ -32,7 +32,7 @@ class AlterarNotasalunoServer{
             notaB3  :notaB3,
             media  :media,
             falta  :falta,
-            categoriaId: categoriaId,
+            usuariosId: usuariosId,
             
         }
     })
