@@ -1,6 +1,6 @@
 import React from 'react' 
 import {Text, View,StyleSheet,Image,Imagem,TouchableOpacity,FlatList} from 'react-native'
-import { SelectList } from 'react-native-dropdown-select-list'
+//import { SelectList } from 'react-native-dropdown-select-list'
 import { useEffect,useState } from 'react'
 
 import apiCliente from '../../../API/apiCliente'
@@ -33,9 +33,6 @@ export default function AtividadeReuniao(){
                   <Text style={styles.vamos}>nome:{item.nome}</Text>
                   </View>
 
-                  <View style={styles.dadosusuarioaAPI}  >
-                  <Image style={styles.iamgem} key={item.id} source={{ uri: `http://10.10.10.33:3333/file/${item.banner}` }} />
-                </View>
 
                   <TouchableOpacity onPress={ListarAtividades}>
                     <Text style={styles.iamgem}>VERIFICAR</Text>

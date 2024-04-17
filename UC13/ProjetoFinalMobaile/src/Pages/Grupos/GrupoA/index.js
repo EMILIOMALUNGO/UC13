@@ -17,7 +17,7 @@ export default function GrupoA({route}){
         try{
             const response = await  apiCliente.get(`/ListarCategoriaID/${id}`)
             setListar(response.data)
-            console.log(response.data)
+           // console.log(response.data)
         }catch(error){
             console.log(error)
         }
@@ -28,7 +28,7 @@ export default function GrupoA({route}){
       handleGA()
     },[listar])
 
-    console.log(listar)
+   // console.log(listar)
 //
    // const [listarCategoria, setListarCategoria]= useState([''])
    //const [listar, setListar]= useState([''])

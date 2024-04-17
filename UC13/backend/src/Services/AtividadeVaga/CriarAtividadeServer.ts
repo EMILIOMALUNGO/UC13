@@ -10,15 +10,14 @@ interface CriarAtividade{
 
 class CriarAtividadeServer{
     async execute({nome,banner}:CriarAtividade){
-       // console.log("server:",nome,usuarioId,categoriaId)
+       // console.log("server:",nome,)
        
              const  CriarAtivi = await prismaClient.atividadeVaga.create({
                  data:{
-                     nome :  nome,     
+                     nome : nome,     
                      banner :banner,
                     
-                    
-                    
+                                  
                  },select:{
                      nome : true,     
                       banner :true,
