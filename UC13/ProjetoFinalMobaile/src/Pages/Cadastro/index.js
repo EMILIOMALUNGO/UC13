@@ -13,7 +13,7 @@ export default function Cadastro() {
    // const navigation = useNavigation()
 
     //essa parte é da categoria 
-    const [nomes, setNomes] = useState([''])
+    const [nomes, setNomes] = useState('')
     const [categorias1, setCategorias1]= useState("")
   //termina aqui
   //essa parte é do produto 
@@ -22,12 +22,13 @@ export default function Cadastro() {
   const [email, setEmail] = useState('')
   const [password, setPassword]= useState('')
   const [enviar, setEnviar] = useState('')
+  
 
   
 
   const [idcategoria, setIdCategoria] = useState([""])
 
- 
+  
   
     
     async function EndCategoria1(){
@@ -51,39 +52,50 @@ export default function Cadastro() {
     useEffect(()=>{    
     EndCategoria1() 
     },[ ])
- 
 
-   
   
-
-
-async function hancadastrar(e) {
     //essa parte sao todos os teste que agente fez pra ver se estão funcionando 
     //console.log(nome,fabricante,quantidade,preco)
     //  console.log(idcategoria)
     // console.log(imagem)
+     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; 
 
-    try {
-        e.preventDefault()
+    async function hancadastrar(e) {
+    e.preventDefault()
     
+    if (!nome || !email ||!password ) {
+        alert('Preencham os campos vazios')
+        return
+    } 
+    if (!emailPattern.test(email)) {
+       alert('O e-mail inserido é válido.');
+     }
+      if (password.trim().length < 8) {
+        alert("A senha precisa ter no minimo 8 caracteris")
+    }
+   
+    try {
+        
         const categoriaId = idcategoria
     
         const response = await apiCliente.post('/CriarUsuarios',{
-            nome,email,password,idcategoria
+            nome,email,password,categoriaId 
         } )
        //console.log(response)
        alert(response.data.dados)
        window.location.reload()
 
     } catch (err) {
-        console.log(err)
+        //console.log(err)
 
     }
-    setNome('')
-    setEmail('')
-    setPassword('')  
+    //setNome('')
+    //setEmail('')
+    //setPassword('')     
 }
-
+ useEffect(()=>{
+    hancadastrar() 
+ },[])
 
 
     async function BuscarCategotia(){
@@ -91,8 +103,7 @@ async function hancadastrar(e) {
         setCategorias(response.data)
         //console.log(response.data)
         return
-    }
-    
+    }   
 BuscarCategotia()
 
    
@@ -161,12 +172,12 @@ BuscarCategotia()
                 
 
                 <View style={styles.testo1}>
-                    <TextInput placeholder="Digita seu nome " placeholderTextColor='#fff' style={styles.input}
+                    <TextInput placeholder="Digita seu nome completo" placeholderTextColor='#fff' style={styles.input}
                     value={nome} onChangeText={setNome}/>
                 </View >
                 <View style={styles.testo1}>
                     <TextInput placeholder="Digita  seu Email" placeholderTextColor='#fff' style={styles.input} 
-                    value={email} onChangeText={setEmail}/>
+                    value={email} onChangeText={setEmail} />
                 </View>
                
                           

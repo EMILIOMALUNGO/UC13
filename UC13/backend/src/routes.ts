@@ -81,7 +81,7 @@ router.delete('/ApagarUsuarios/:id',isAutenticado, new  ApagarUsuariosController
 
 //Estrutura de Produtos
 router.post('/CriarGradedaus', upload.single('file'), new CriarGradedauscController().handle)
-router.get('/ListartGradeda',isAutenticado, new ListartGradedauscControler().handle)
+router.get('/ListartGradeda', new ListartGradedauscControler().handle)
 router.delete('/ApagarGrade/:id',isAutenticado, new ApagarGradedauscController().handle)
 router.get('/EditarGrade/:id',isAutenticado,new EditarGradedauscController().handle)
 router.put('/AlterarGrade/:id',isAutenticado,new  AlterarGradedauscController().handle)
@@ -107,8 +107,8 @@ router.get('/ListarAtividade/:id', isAutenticado, new ListartAtividadeVagaContro
 
 
 //Estrutura de Reuniao  CriarNotasalunoControllr
-router.post('/CriarReuniao', upload.single('file'), new CriarReuniaoController().handle)
-router.get('/ListarReuniao' , new ListarReuniaoController().handle)
+router.post('/CriarReuniaoVagas', upload.single('file'), new CriarReuniaoController().handle)
+router.get('/ListarReuniaoVagas' , new ListarReuniaoController().handle)
 router.get('/EditarReuniao/:id', new   EditarReuniaoController().handle)
 router.put('/AlterarReuniao/:id', isAutenticado, new AlterarReuniaoController().handle)
 router.delete('/ApagarReuniao/:id',isAutenticado, new ApagarReuniaoController().handle)
@@ -117,7 +117,7 @@ router.get('/ListarReuniao/:id', isAutenticado, new  ListarReuniaoControllerID()
 
 //Estrutura de CriarNotasalunoControllr
 router.post('/CriarNota', new CriarNotasalunoControllr().handle)
-router.get('/ListarNotas', isAutenticado, new ListarNotasalunoController ().handle)
+router.get('/ListarNotas', new ListarNotasalunoController ().handle)
 router.get('/EditarNota/:id',  isAutenticado, new   EditarNotasalunoController().handle)
 router.put('/AlterarNotas/:id', isAutenticado, new AlterarNotasalunoController().handle)
 router.delete('/ApagarReuniao/:id',isAutenticado, new ApagarReuniaoController().handle)

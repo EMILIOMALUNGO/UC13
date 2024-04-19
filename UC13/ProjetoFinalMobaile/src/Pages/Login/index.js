@@ -5,6 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { useEffect, useState } from "react";
+import apiCliente from "../../API/apiCliente";
 
 
 
@@ -13,7 +14,31 @@ export default function Login() {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-
+    const [login, setLogin] = useState("")
+     
+    async function handleLogin(){
+        if (!email || !password) {
+            alert('Preecha os campos vazios')
+        }
+        else if (email==email || password==password) {
+            alert("email ou senha esta incorreto")
+        }
+        
+        try{
+            const response =  await apiCliente.post('/LoginUsuarios',{
+                email,password
+            })
+             setLogin(response.data)
+             navigation.navigate("DashBoard")
+        }catch(Error){
+            console.log(Error)
+        }
+        setEmail('')
+        setPassword('')
+    }
+    useEffect(()=>{
+        handleLogin()
+    },[])
 
     
     return (
@@ -53,7 +78,7 @@ export default function Login() {
                     <Text style={styles.tela}>Esqueceu a Senha?</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => navigation.navigate("DashBoard")}>
+                <TouchableOpacity onPress={handleLogin}>
                     <Text style={styles.tela2}>Entrar</Text>
                 </TouchableOpacity>
 

@@ -42,8 +42,6 @@ notasalunos Notasaluno []
     categorias  Categoria @relation(fields: [categoriaId], references: [id])
   categoriaId String
 
-
-
   @@map("usuarios")
 }
 

@@ -15,12 +15,10 @@ import Pagamento from "../Pages/Pagamento";
 import Administrador from "../Pages/Administrador";
 import DashAdministrador from "../Pages/DashAdministrador";
 import GrupoA from "../Pages/Grupos/GrupoA";
-import GrupoB from "../Pages/Grupos/GrupoB";
-import GrupoC from "../Pages/Grupos/GrupoC";
-import GrupoD from "../Pages/Grupos/GrupoD";
 
-import AnuncioFaltas from "../Pages/Atividades/AnuncioFaltas";
-import AtividadeMeses from "../Pages/Atividades/AtividadeMeses";
+
+
+
 import AtividadeReuniao from "../Pages/Atividades/AtividadeReuniao";
 import AtividadeVagas from "../Pages/Atividades/AtividadeVagas";
 import GradedasUcs from "../Pages/Atividades/GradedasUcs";
@@ -62,12 +60,10 @@ export default function Routes (){
              <Stack.Screen name="RecuperarSenha" component={RecuperarSenha} options={{ headerShown: false}}/>
              <Stack.Screen name="DashAdministrador" component={DashAdministrador} options={{ headerShown: false}}/>
              <Stack.Screen name="GrupoA" component={GrupoA} options={{ headerShown: false}}/>
-             <Stack.Screen name="GrupoB" component={GrupoB} options={{ headerShown: false}}/>
-             <Stack.Screen name="GrupoC" component={GrupoC} options={{ headerShown: false}}/>
-             <Stack.Screen name="GrupoD" component={GrupoD} options={{ headerShown: false}}/>
              
-             <Stack.Screen name="AnuncioFaltas" component={AnuncioFaltas} options={{ headerShown: false}}/>
-             <Stack.Screen name="AtividadeMeses" component={AtividadeMeses} options={{ headerShown: false}}/>
+             
+ 
+    
              <Stack.Screen name="AtividadeReuniao" component={AtividadeReuniao} options={{ headerShown: false}}/>
              <Stack.Screen name="AtividadeVagas" component={AtividadeVagas} options={{ headerShown: false}}/>
              <Stack.Screen name="GradedasUcs" component={GradedasUcs} options={{ headerShown: false}}/>
